@@ -1,0 +1,69 @@
+@import "variables";
+@import "extend";
+
+.bannerImageDiv {
+  .p1 {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 54px;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #000000;
+    margin: 32px 0 10px 0;
+  }
+
+  .p2 {
+    margin-bottom: 30px;
+    width: 267px;
+    height: 48px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #000000;
+  }
+
+  .input {
+    @extend .inputAndBtn;
+    border: 1px solid #bbbbbb;
+    margin-bottom: 15px;
+    padding-left: 15px;
+  }
+
+  .btn {
+    @extend .inputAndBtn;
+    background: #000000;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  .p3 {
+    text-align: start !important;
+    width: 250px;
+    height: 36px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #777777;
+  }
+
+  //part2 (shoes image)
+  .part2 {
+    .p4 {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 40px;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+    }
+  }
+}

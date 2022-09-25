@@ -2,7 +2,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="modalHeaderDiv">
+    <div className="modalHeaderDiv flex flex-col w-[1194px]  justify-center mt-[90px]">
       <p className="p1">Modal Card Generator</p>
       <p className="p2">
         Measure your return on email marketing efforts easier and faster by

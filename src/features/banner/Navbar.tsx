@@ -5,12 +5,12 @@ import Image from "next/image";
 function Navbar() {
   return (
     <div
-      className="navContainer flex flex-row justify-between mt-6 justify-center items-center"
+      className="navContainer flex flex-row justify-between mt-[23px] justify-center items-center"
     >
       <div className="flex mr-2.5">
         {/* left part */}
           <Image src="/logo.svg" width={36} height={36}/>
-          <p className=" text font-extrabold text-base not-italic ml-2.5">modal.cards</p>
+          <p className=" text font-extrabold text-base not-italic ml-2.5 flex items-center">modal.cards</p>
       </div>
 
       {/* middle part */}

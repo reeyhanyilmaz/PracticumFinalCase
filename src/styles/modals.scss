@@ -1,8 +1,7 @@
 @import "./variables";
 
+//header
 .modalHeaderDiv {
-  margin-left: 243px;
-  margin-top: 90px;
   .p1 {
     font-family: "Poppins";
     font-style: normal;
@@ -27,8 +26,8 @@
   }
 }
 
-.container {
-  margin: 90px 0 0 243px;
+//part1
+.modalPart1Div{
   .p1 {
     width: 36px;
     height: 36px;

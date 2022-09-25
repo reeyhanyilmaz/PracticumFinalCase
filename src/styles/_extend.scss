@@ -1,3 +1,5 @@
+@import "variables";
+
 .navbarText {
   // top: 0.43%;
   // bottom: 99.33%;
@@ -28,4 +30,11 @@
   line-height: 22px;
   letter-spacing: -0.03em;
   color: #FFFFFF;
+}
+
+//for banner input and button
+.inputAndBtn{
+  width: 300px;
+  height: 48px;
+  border-radius: $border;
 }
