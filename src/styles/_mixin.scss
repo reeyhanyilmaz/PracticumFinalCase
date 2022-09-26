@@ -1,0 +1,9 @@
+@mixin generalTextProperty($family, $style, $weight, $size, $height, $spacing,$color){
+    font-family: $family;
+    font-style: $style;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+    letter-spacing: $spacing;
+    color: $color;
+}

@@ -1,59 +1,58 @@
 @import "./variables";
+@import "./mixin";
+@import "./extend";
 
 //header
 .modalHeaderDiv {
   .p1 {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 48px;
-    letter-spacing: -0.03em;
-    color: #000000;
+    @include generalTextProperty(
+      "Poppins",
+      normal,
+      600,
+      36px,
+      48px,
+      -0.03em,
+      #000000
+    );
   }
 
   .p2 {
-    width: 459px;
-    height: 72px;
-    margin-top: 15px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: -0.015em;
-    color: #000000;
+    @include generalTextProperty(
+      "Poppins",
+      normal,
+      400,
+      16px,
+      24px,
+      -0.015em,
+      #000000
+    );
   }
 }
 
 //part1
-.modalPart1Div{
+.modalPart1Div {
   .p1 {
-    width: 36px;
-    height: 36px;
-    margin-right: 15px;
-    background: $page123Bg;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: -0.03em;
-    color: #000000;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include generalTextProperty(
+      "Poppins",
+      normal,
+      600,
+      16px,
+      24px,
+      -0.03em,
+      #000000
+    );
+    @extend .pageNumberGeneralStyle;
   }
 
   .p2 {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 36px;
-    letter-spacing: -0.03em;
-    color: #000000;
+    @include generalTextProperty(
+      "Poppins",
+      normal,
+      600,
+      18px,
+      36px,
+      -0.03em,
+      #000000
+    );
   }
 }

@@ -1,74 +1,72 @@
 @import "./extend";
 @import "./variables";
+@import "./mixin";
 
 .bannerBluePart {
   background: linear-gradient(180deg, #ffffff 0%, #e3f2f7 100%);
 
+  //navbar *******************************
   .text {
     font-family: "Inter";
   }
 
-  .text1 {
-    @extend .navbarText;
-    margin-right: 9.5px;
-  }
-
-  .text2 {
-    @extend .navbarText;
-    margin-left: 34.5px;
-    margin-right: 30px;
-  }
-
-  .text3 {
-    @extend .navbarText;
-    margin-right: 30px;
-  }
-
-  .text4 {
-    @extend .navbarText;
-    margin-right: 371px;
-  }
-
-  .text5 {
-    @extend .navbarText;
-    margin-right: 30px;
+  .navbarText {
+    @include generalTextProperty(
+      "Inter",
+      normal,
+      500,
+      16px,
+      18px,
+      -0.03em,
+      #000000
+    );
   }
 
   .tryBtn {
-    width: 121px;
-    height: 36px;
     box-shadow: 0px 3px 7px 1px rgba(125, 74, 234, 0.2);
     background-color: $primary-color;
-    color: white;
     border-radius: $border;
   }
 
-  //header
+  //header (middle part) *********************
   .headerDiv {
-    margin-top: 99px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 72px;
-    line-height: 80px;
-    width: 486px;
-    height: 160px;
-    letter-spacing: -0.03em;
-    color: #000000;
+    @include generalTextProperty(
+      "Poppins",
+      normal,
+      600,
+      72px,
+      80px,
+      -0.03em,
+      #000000
+    );
   }
 
-  //text
+  //text 
   .textDiv {
-    margin-top: 20px;
-    width: 1128px;
-    height: 88px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 44px;
-    letter-spacing: -0.015em;
-    color: #000000;
+    @include generalTextProperty(
+      "Poppins",
+      normal,
+      400,
+      30px,
+      44px,
+      -0.015em,
+      #000000
+    );
+  }
+
+  .try2Btn {
+    background: $primary-color;
+    box-shadow: 0px 5px 10px 2px rgba(125, 74, 234, 0.27);
+    border-radius: $border;
+    @include generalTextProperty(
+      "Inter",
+      normal,
+      500,
+      18px,
+      22px,
+      -0.03em,
+      #ffffff
+    );
   }
 
   .bannerImageShadow {
@@ -80,47 +78,41 @@
   }
 }
 
-//gray part
+//gray part ***********************************
 .bannerGrayPart {
-  .grayText1 {
-    .p1 {
-      @extend .grayPartText;
-    }
-
-    .p2 {
-      @extend .grayPartText2;
-    }
+  .p1 {
+    @include generalTextProperty(
+      "Poppins",
+      normal,
+      600,
+      72px,
+      80px,
+      -0.03em,
+      #ffffff
+    );
   }
 
-  .grayText2 {
-    .p1 {
-      @extend .grayPartText;
-    }
-
-    .p2 {
-      @extend .grayPartText2;
-    }
+  .p2 {
+    @include generalTextProperty(
+      "Inter",
+      normal,
+      500,
+      16px,
+      22px,
+      -0.03em,
+      #ffffff
+    );
   }
 
-  .grayText3 {
-    .p1 {
-      @extend .grayPartText;
-    }
-
-    .p2 {
-      @extend .grayPartText2;
-    }
-  }
-
-  .grayText4 {
-    width: 344px;
-    height: 132px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 44px;
-    letter-spacing: -0.015em;
-    color: #ffffff;
+  .p3 {
+    @include generalTextProperty(
+      "Poppins",
+      normal,
+      600,
+      34px,
+      44px,
+      -0.015em,
+      #ffffff
+    );
   }
 }
