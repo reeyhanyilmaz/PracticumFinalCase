@@ -5,7 +5,7 @@ import Image from "next/image";
 function Navbar() {
   return (
     <div
-      className="navContainer flex flex-row justify-between mt-[23px] justify-center items-center"
+      className="flex flex-row justify-between mt-[23px] justify-center items-center"
     >
       <div className="flex mr-2.5">
         {/* left part */}
@@ -15,17 +15,17 @@ function Navbar() {
 
       {/* middle part */}
       <div className="flex">
-        <div className="text1">Solutions </div>
+        <div className="navbarText mr-[10px]">Solutions </div>
         <Image src="/down.svg" width={18} height={18}/>
-        <div className="text2">Product Tour</div>
-        <div className="text3">Showcase</div>
-        <div className="text4">Pricing</div>
+        <div className="navbarText ml-[35px] mr-[30px]">Product Tour</div>
+        <div className="navbarText mr-[30px]">Showcase</div>
+        <div className="navbarText mr-[371px]">Pricing</div>
       </div>
 
       {/* rigth part */}
       <div className="flex">
-        <button className="text5">Sign in</button>
-        <button className="tryBtn">Try for free</button>
+        <button className="navbarText mr-[30px]">Sign in</button>
+        <button className="tryBtn w-[121px] h-[36px] text-[#fff]">Try for free</button>
         {/* <Button color="#000" type="empty" title="Sign In" /> */}
         {/* <Button bg="#7D4AEA" color="#fff" type="full" title="Try for free" /> */}
       </div>
