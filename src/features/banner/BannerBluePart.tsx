@@ -25,15 +25,15 @@ function BannerBluePart() {
 
         <div className="mb-[90px] flex flex-row mt-10">
           <span className="flex flex-row ">
-            <Image src="/check.svg" width={16} height={16} />
+            <Image src="/assets/banner/check.svg" width={16} height={16} />
             <p className="ml-3 mr-7">Free and paid plans </p>
           </span>
           <span className="flex flex-row">
-            <Image src="/check.svg" width={16} height={16} />
+            <Image src="/assets/banner/check.svg" width={16} height={16} />
             <p className="ml-3 mr-7">Setup in minutes </p>
           </span>
           <span className="flex flex-row">
-            <Image src="/check.svg" width={16} height={16} />
+            <Image src="/assets/banner/check.svg" width={16} height={16} />
             <p className="ml-3 mr-7">No credit card required*</p>
           </span>
         </div>
