@@ -1,47 +1,37 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { useAppDispatch } from "../../redux/hooks";
+import { setSelectedModal, useSelectedModal } from "../../redux/modalSlice";
+import { ModalGridCardsData as modals } from "../../data/modal";
+import { IModalGridCard } from "../../types/modal";
+import SectionTitle from "../../components/SectionTitle";
 
 function ModalPart1() {
   const [isClick, setIsClick] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const selectedModal = useSelectedModal();
 
   return (
     <div className="modalPart1Div justify-center w-[1194px] mt-[90px]">
-      <div className="flex flex-row ">
-        <p className="p1">1</p>
-        <p className="p2">Choose your template</p>
-      </div>
+      <SectionTitle no="1" title="Choose your template" extra="" />
+      {/* <SectionTitle no="2" title="Choose your template" extra="Selam, reyhan" /> */}
+
 
       {/* modals grid part */}
       <div className="mt-[30px] grid grid-cols-4 gap-[30px]">
-        <div className="modalGridStyles generalPosition">
-          <Image src="/assets/modal/modal1.svg" width={170} height={156} />
-        </div>
-
-        <div className="modalGridStyles generalPosition">
-          <Image src="/assets/modal/modal2.svg" width={136} height={170} />
-        </div>
-
-        <div className="modalGridStyles generalPosition">
-          <Image src="/assets/modal/modal3.svg" width={148} height={170} />
-        </div>
-
-        <div className="modalGridStyles generalPosition">deneme 4</div>
-
-        <div className="modalGridStyles generalPosition">deneme 5</div>
-
-        <div className="modalGridStyles generalPosition">deneme 6</div>
-
-        <div className="modalGridStyles generalPosition">deneme 7 </div>
-
-        <div className="modalGridStyles generalPosition">deneme 8</div>
-
-        <div className="modalGridStyles generalPosition">deneme 9</div>
-
-        <div className="modalGridStyles generalPosition">deneme 10</div>
-
-        <div className="modalGridStyles generalPosition">deneme 11</div>
-
-        <div className="modalGridStyles generalPosition">deneme 12</div>
+        {modals.map((modal: IModalGridCard) => (
+          <div
+            className="modalGridStyles generalPosition"
+            onClick={() => dispatch(setSelectedModal(modal.id))}
+            key={modal.id}
+          >
+            <Image
+              src={modal.image.url}
+              width={modal.image.width}
+              height={modal.image.height}
+            />
+          </div>
+        ))}
       </div>
 
       {/* page part */}
