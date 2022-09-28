@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
+import { useAppSelector } from './hooks'
 
 // Define a type for the slice state
 interface ModalState {
-  selectedModal: number
+    selectedModal: number
 }
 
 // Define the initial state using that type
@@ -13,18 +14,20 @@ const initialState: ModalState = {
 }
 
 export const modalSlice = createSlice({
-  name: 'modal',
-  initialState,
-  reducers: {
-    setSelectedModal: (state,action) => {
-      state.selectedModal = action.payload
+    name: 'modal',
+    initialState,
+    reducers: {
+        setSelectedModal: (state, action: PayloadAction<number>) => {
+            state.selectedModal = action.payload
+        },
     },
-  },
 })
 
+// Reducers
 export const { setSelectedModal } = modalSlice.actions
 
-// Other code such as selectors can use the imported `RootState` type
-export const selectSelectedModal = (s: RootState) => s.modal.selectedModal;
+// Custom Hooks
+export const useSelectedModal = () => useAppSelector((s: RootState) => s.modal.selectedModal);
 
+// ModalReducer
 export default modalSlice.reducer
