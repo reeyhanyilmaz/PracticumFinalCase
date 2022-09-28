@@ -82,4 +82,3 @@ function ModalPart1() {
 }
 
 export default ModalPart1;
-
