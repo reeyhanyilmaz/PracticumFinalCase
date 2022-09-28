@@ -7,7 +7,7 @@ function InstallLocalNowModal() {
   return (
     <div className="generalModalStyle flex-col w-[480px] h-[600px] font-[Inter]">
       <ModalCloseButton />
-      <Image src="/installLocalNowModalImage.svg" width={480} height={300} />
+      <Image src="/assets/modal/installLocalNowModalImage.svg" width={480} height={300} />
       <div className="generalPosition flex-col w-[480px] h-[300px]">
         <p className="w-[236px] h-[36px] mb-[20px] font-bold text-2xl">
           Install Local Now

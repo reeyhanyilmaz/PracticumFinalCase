@@ -9,7 +9,7 @@ function SecurityCodeModal() {
     <div className="generalModalStyle flex-col w-[480px] h-[446px] font-[Inter]">
       <ModalCloseButton />
       <div className="generalPosition bg-purple mb-[29px] h-[90px] w-[90px] rounded-[50%]">
-        <Image src="/securityCodeLogoContent.svg" width={36} height={44} />
+        <Image src="/assets/modal/securityCodeLogoContent.svg" width={36} height={44} />
       </div>
       <p className="w-[209px] h-[36px] mb-[20px] font-bold text-2xl ">
         Security Code
