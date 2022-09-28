@@ -1,8 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { useSelectedModal } from "../../redux/modalSlice";
+import SecurityCodeModal from "./modals/SecurityCodeModal";
+import InstallLocalNowModal from "./modals/InstallLocalNowModal";
+
+const handleSelectedModal = (number: number) => {
+  switch (number) {
+    case 1:
+      return <SecurityCodeModal />;
+    case 2:
+      return <InstallLocalNowModal />;
+    default:
+      return (
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            backgroundColor: "darkgreen",
+          }}
+        >
+          Bu modal hazir degil
+        </div>
+      );
+  }
+};
 
 function ModalPart2() {
   const [isClick, setIsClick] = useState<boolean>(false);
+  const selectedModal = useSelectedModal();
+
+  // grid sisteminde seçilen modal her değiştiğinde
+  // aşağıdaki fonksiyon tekrar çalışacak
+  // böylece seçilen yeni modal
+  // bu bölümde gösterilecek
+  // useEffect(() => {
+  //   handleSelectedModal(selectedModal)
+  // }, [selectedModal])
 
   return (
     <div className="modalPart1Div flex flex-row justify-center w-[1194px] mt-[90px] ">
@@ -70,7 +103,11 @@ function ModalPart2() {
         </p>
         <div className="generalPosition flex-col UploadLogoBorder mt-[15px] mb-[90px]">
           <div className="generalPosition bg-[#7D4AEA] opacity-[0.1] rounded-[12px] w-[80px] h-[80px] mt-[30px]">
-            <Image src="/assets/modal/uploadLogoIn.svg" width={27} height={27} />
+            <Image
+              src="/assets/modal/uploadLogoIn.svg"
+              width={27}
+              height={27}
+            />
           </div>
           <div className="flex flex-row mt-[20px]">
             <Image src="/assets/modal/uploadIcon.svg" width={18} height={12} />
@@ -84,7 +121,7 @@ function ModalPart2() {
 
       {/* right part  *************************************************************/}
       <div className="w-[740px] h-[405px] rounded-[30px] shadow-[0px 5px 30px rgba(0, 0, 0, 0.15)]  bg-[red]">
-      
+        {handleSelectedModal(selectedModal)}
       </div>
     </div>
   );
