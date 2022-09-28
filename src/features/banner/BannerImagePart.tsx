@@ -6,7 +6,7 @@ function BannerImagePart() {
     <div className="bannerImageDiv flex flex-row absolute w-[800px] h-[468px] top-[683px] rounded-[40px] bg-[#ffffff] mb-[120px]">
       {/* left part */}
       <div className="part1 flex flex-col w-[400px] justify-center items-center">
-        <Image src="/assets/banner/camper.svg" width={106} height={38} />{/* camper image */}
+        <Image src="/camper.svg" width={106} height={38} />{/* camper image */}
         <p className="p1">Join the club</p>
         <p className="p2 mb-[30px] w-[267px] h-[48px]">
           Subscribe and Get an Extra
@@ -22,14 +22,14 @@ function BannerImagePart() {
       {/* right part (shoes image) */}
       <div className="part2 relative ">
         <Image
-          src="/assets/banner/shoes.png"
+          src="/shoes.png"
           width={400}
           height={468}
           className="rounded-r-[40px]"
         />
         {/*close icon */}
         <div className="absolute top-[30px] right-[30px]">
-          <Image src="/assets/banner/close.png" width={42} height={42} />
+          <Image src="/close.png" width={42} height={42} />
         </div>
         <p className="p4 absolute w-[260px] h-[80px] bottom-[36px] left-[36px]">
           Mediterranean Sneakers®
@@ -37,12 +37,12 @@ function BannerImagePart() {
 
         {/* resim üzerindeki 2 white sutun */}
         <div className="absolute bg-[#fff] right-[-120px] top-[100px] mb-[10px] w-[182px] h-[48px] rounded-[12px] flex flex-row justify-center items-center">
-          <Image src="/assets/banner/light.svg" width={20} height={20} />
+          <Image src="/light.svg" width={20} height={20} />
           <p className="lightAndDolorText ml-[12px]">Grow email list</p>
         </div>
 
         <div className="absolute bg-[#fff] right-[-185px] top-[160px] w-[269px] h-[48px] rounded-[12px] flex flex-row justify-center items-center">
-          <Image src="/assets/banner/dolor.svg" width={20} height={20} />
+          <Image src="/dolor.svg" width={20} height={20} />
           <p className="lightAndDolorText ml-[12px]">Increase sales conversion</p>
         </div>
       </div>

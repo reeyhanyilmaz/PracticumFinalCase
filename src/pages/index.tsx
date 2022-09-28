@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import PageHead from "../components/PageHead";
 import Banner from "../features/banner/Banner";
-import Modals from "../features/modals/ModalComponent";
+import Modals from "../features/modal/Modals";
+
 
 const Home: NextPage = () => {
   return (

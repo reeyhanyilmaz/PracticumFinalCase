@@ -9,14 +9,14 @@ function Navbar() {
     >
       <div className="flex mr-2.5">
         {/* left part */}
-          <Image src="/assets/banner/logo.svg" width={36} height={36}/>
+          <Image src="/logo.svg" width={36} height={36}/>
           <p className=" text font-extrabold text-base not-italic ml-2.5 flex items-center">modal.cards</p>
       </div>
 
       {/* middle part */}
       <div className="flex">
         <div className="navbarText mr-[10px]">Solutions </div>
-        <Image src="/assets/banner/down.svg" width={18} height={18}/>
+        <Image src="/down.svg" width={18} height={18}/>
         <div className="navbarText ml-[35px] mr-[30px]">Product Tour</div>
         <div className="navbarText mr-[30px]">Showcase</div>
         <div className="navbarText mr-[371px]">Pricing</div>
