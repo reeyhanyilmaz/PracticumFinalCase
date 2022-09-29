@@ -8,18 +8,18 @@ export const ModalGridCardsData = <IModalGridCard[]>[
     },
     {
         id: 2,
-        name: "Security Code Modal",
-        image: { url: "/assets/modal/modal1.svg", width: 170, height: 156 },
+        name: "Install Local Now Modal",
+        image: { url: "/assets/modal/modal2.svg", width: 136, height: 170 },
     },
     {
         id: 3,
-        name: "Security Code Modal",
-        image: { url: "/assets/modal/modal1.svg", width: 170, height: 156 },
+        name: "Choose best for you",
+        image: { url: "/assets/modal/modal3.svg", width: 148, height: 156 },
     },
     {
         id: 4,
-        name: "Security Code Modal",
-        image: { url: "/assets/modal/modal1.svg", width: 170, height: 156 },
+        name: "Sign Up",
+        image: { url: "/assets/modal/modal4.png", width: 170, height: 156 },
     },
     {
         id: 5,

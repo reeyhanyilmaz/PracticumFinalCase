@@ -7,6 +7,10 @@ interface IButton {
     border: string;
     bg: string;
     color?: string;
+    height?: number;
+    size?:number;
+    weight?:number;
+
 }
 
 function ModalButton(props: IButton) {
@@ -15,6 +19,10 @@ function ModalButton(props: IButton) {
         backgroundColor: props.bg,
         color: props.color,
         width: props.width,
+        height: props.height,
+        fontSize: props.size,
+        fontWeight: props.weight,
+
     }
   return (
     <div>
