@@ -4,6 +4,7 @@ import { useSelectedModal } from "../../redux/modalSlice";
 import SecurityCodeModal from "./modals/SecurityCodeModal";
 import InstallLocalNowModal from "./modals/InstallLocalNowModal";
 import SectionTitle from "../../components/SectionTitle";
+import SignUpShoeModal from "./modals/SignUpShoeModal";
 
 const handleSelectedModal = (number: number) => {
   switch (number) {
@@ -12,17 +13,7 @@ const handleSelectedModal = (number: number) => {
     case 2:
       return <InstallLocalNowModal />;
     default:
-      return (
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-            backgroundColor: "darkgreen",
-          }}
-        >
-          Bu modal hazir degil
-        </div>
-      );
+      return <SignUpShoeModal />;
   }
 };
 
@@ -37,7 +28,7 @@ function ModalPart2() {
         <SectionTitle no="2" title="Appearancee" extra="Size, colors, logo" />
         <p className="text-sm font-[Inter] font-normal mt-[30px]">Size</p>
 
-        {/* smal-mediuml-large option */}
+        {/* small-medium-large option */}
         <div className="flex justify-around items-center flex-row mt-[30px] mb-[67px] w-[257px] h-[48px] bg-[#f5f5f5] rounded-[12px]">
           <button
             onClick={() => setIsClick(!isClick)}
@@ -106,10 +97,10 @@ function ModalPart2() {
         </div>
       </div>
 
-      {/* right part  *************************************************************/}
-      <div className="rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)]">
-        {handleSelectedModal(selectedModal)}
-      </div>
+      {/* right part  *************************************************************/}  
+        <div className="rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)]">
+          {handleSelectedModal(selectedModal)}
+        </div>
     </div>
   );
 }
