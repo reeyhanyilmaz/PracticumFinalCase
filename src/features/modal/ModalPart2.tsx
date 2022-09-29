@@ -22,7 +22,7 @@ function ModalPart2() {
   const selectedModal = useSelectedModal();
 
   return (
-    <div className="modalPart1Div flex flex-row justify-between w-[1194px] mt-[90px]">
+    <div className="modalPart1Div flex flex-row justify-between items-start w-[1194px] mt-[90px]">
       {/* left part **************************************************************/}
       <div className="h-[auto]">
         <SectionTitle no="2" title="Appearancee" extra="Size, colors, logo" />
@@ -97,10 +97,10 @@ function ModalPart2() {
         </div>
       </div>
 
-      {/* right part  *************************************************************/}  
-        <div className="h-[auto] rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)]">
-          {handleSelectedModal(selectedModal)}
-        </div>
+      {/* right part  *************************************************************/}
+      <div className="rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)]">
+        {handleSelectedModal(selectedModal)}
+      </div>
     </div>
   );
 }
