@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useSelectedModal } from "../../redux/modalSlice";
 import SecurityCodeModal from "./modals/SecurityCodeModal";
 import InstallLocalNowModal from "./modals/InstallLocalNowModal";
+import SectionTitle from "../../components/SectionTitle";
 
 const handleSelectedModal = (number: number) => {
   switch (number) {
@@ -29,26 +30,12 @@ function ModalPart2() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const selectedModal = useSelectedModal();
 
-  // grid sisteminde seçilen modal her değiştiğinde
-  // aşağıdaki fonksiyon tekrar çalışacak
-  // böylece seçilen yeni modal
-  // bu bölümde gösterilecek
-  // useEffect(() => {
-  //   handleSelectedModal(selectedModal)
-  // }, [selectedModal])
-
   return (
-    <div className="modalPart1Div flex flex-row justify-center w-[1194px] mt-[90px] ">
+    <div className="modalPart1Div flex flex-row justify-between w-[1194px] mt-[90px]">
       {/* left part **************************************************************/}
       <div>
-        <div className="flex flex-row mb-[30px]">
-          <p className="p1">2</p>
-          <p className="p2">Appearance</p>
-          <p className="flex justify-center items-center ml-[3px]">
-            (Size, colors, logo)
-          </p>
-        </div>
-        <p className="text-sm font-[Inter] font-normal">Size</p>
+        <SectionTitle no="2" title="Appearancee" extra="Size, colors, logo" />
+        <p className="text-sm font-[Inter] font-normal mt-[30px]">Size</p>
 
         {/* smal-mediuml-large option */}
         <div className="flex justify-around items-center flex-row mt-[30px] mb-[67px] w-[257px] h-[48px] bg-[#f5f5f5] rounded-[12px]">
@@ -120,7 +107,7 @@ function ModalPart2() {
       </div>
 
       {/* right part  *************************************************************/}
-      <div className="w-[740px] h-[405px] rounded-[30px] shadow-[0px 5px 30px rgba(0, 0, 0, 0.15)]  bg-[red]">
+      <div className="rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)]">
         {handleSelectedModal(selectedModal)}
       </div>
     </div>
