@@ -24,7 +24,7 @@ function ModalPart2() {
   return (
     <div className="modalPart1Div flex flex-row justify-between w-[1194px] mt-[90px]">
       {/* left part **************************************************************/}
-      <div>
+      <div className="h-[auto]">
         <SectionTitle no="2" title="Appearancee" extra="Size, colors, logo" />
         <p className="text-sm font-[Inter] font-normal mt-[30px]">Size</p>
 
@@ -98,7 +98,7 @@ function ModalPart2() {
       </div>
 
       {/* right part  *************************************************************/}  
-        <div className="rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)]">
+        <div className="h-[auto] rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)]">
           {handleSelectedModal(selectedModal)}
         </div>
     </div>

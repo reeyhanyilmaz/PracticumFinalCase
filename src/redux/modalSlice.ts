@@ -3,12 +3,10 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 import { useAppSelector } from './hooks'
 
-// Define a type for the slice state
 interface ModalState {
     selectedModal: number
 }
 
-// Define the initial state using that type
 const initialState: ModalState = {
     selectedModal: 0,
 }

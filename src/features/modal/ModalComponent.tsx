@@ -3,7 +3,7 @@ import Header from "./ModalPartHeader";
 import ModalPart1 from "./ModalPart1";
 import ModalPart2 from "./ModalPart2";
 
-function Modals() {
+function Modal() {
   return (
     <div className="generalPosition flex-col">
       <Header />
@@ -13,4 +13,4 @@ function Modals() {
   );
 }
 
-export default Modals;
+export default Modal;
