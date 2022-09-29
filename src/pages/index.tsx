@@ -1,14 +1,14 @@
 import type { NextPage } from "next";
 import PageHead from "../components/PageHead";
 import Banner from "../features/banner/Banner";
-import Modals from "../features/modal/ModalComponent";
+import Modal from "../features/modal/Modal";
 
 const Home: NextPage = () => {
   return (
     <div className="app justify-center items-center">
       <PageHead />
       <Banner />
-      <Modals />
+      <Modal />
     </div>
   );
 };
