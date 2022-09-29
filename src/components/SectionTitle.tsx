@@ -12,7 +12,11 @@ function SectionTitle(props: IProps) {
     <div className="flex flex-row ">
       <p className="p1">{no}</p>
       <p className="p2">{title}</p>
-      {extra !== "" && <div className="ml-[0.3rem]">{`(${extra})`}</div>}
+      {extra !== "" && (
+        <p className="flex justify-center items-center ml-[5px]">
+          {`(${extra})`}
+        </p>
+      )}
     </div>
   );
 }
