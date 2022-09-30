@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 //nextjs
 import Image from "next/image";
@@ -9,32 +9,33 @@ import { Upload } from "upload-js";
 //loader spinner
 import { RotatingLines } from "react-loader-spinner";
 
+//redux
 import {
   setFileUrl,
   useFileUrl,
   useLoading,
   setLoading,
 } from "../redux/modalSlice";
+import { useAppDispatch } from "../redux/hooks";
+
 
 const upload = new Upload({ apiKey: "public_12a1xqKxHyXXSyXNew8hUQWRX2uS" });
 
 const UploadButton = () => {
-  // const fileUrl = useFileUrl(); //state
-  // console.log("fileUrl :>> ", fileUrl);
-  // const loading = useLoading();
+  const dispatch = useAppDispatch();
 
-  const [fileUrl, setFileUrl] = useState("");
-  const [loading, setLoading] = useState(false);
-  console.log("loading", loading);
+  //state
+  const fileUrl = useFileUrl();
+  const loading = useLoading();
 
   const uploadFile = upload.createFileInputHandler({
     onProgress: ({ bytesSent, bytesTotal }) => {
-      setLoading(true);
+      dispatch(setLoading(true));
       console.log(`${bytesSent / bytesTotal}% complete`);
     },
     onUploaded: ({ fileUrl, fileId }) => {
-      setLoading(false);
-      setFileUrl(fileUrl);
+      dispatch(setLoading(false));
+      dispatch(setFileUrl(fileUrl));
       // alert(`File uploaded!\n${fileUrl}`);
       console.log("fileUrl", fileUrl);
     },
@@ -72,7 +73,13 @@ const UploadButton = () => {
           )}
         </div>
       ) : (
-        <Image loader={() => src} src={fileUrl} width={110} height={80} />
+        <Image
+          unoptimized
+          loader={() => src}
+          src={fileUrl}
+          width={110}
+          height={80}
+        />
       )}
 
       <div className="flex flex-row mt-[20px]">
