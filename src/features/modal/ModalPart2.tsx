@@ -1,25 +1,36 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { useSelectedModal } from "../../redux/modalSlice";
+
+//redux
+import { useSelectedModal, useFileUrl } from "../../redux/modalSlice";
+
+//modaals
 import SecurityCodeModal from "./modals/SecurityCodeModal";
 import InstallLocalNowModal from "./modals/InstallLocalNowModal";
-import SectionTitle from "../../components/SectionTitle";
 import SignUpShoeModal from "./modals/SignUpShoeModal";
 
-const handleSelectedModal = (number: number) => {
-  switch (number) {
-    case 1:
-      return <SecurityCodeModal />;
-    case 2:
-      return <InstallLocalNowModal />;
-    default:
-      return <SignUpShoeModal />;
-  }
-};
+import SectionTitle from "../../components/SectionTitle";
+
+//upload button
+import MyUploadButtonPart from "../../components/MyUploadButtonPart";
 
 function ModalPart2() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const selectedModal = useSelectedModal();
+
+  const fileUrl = useFileUrl(); //state
+  console.log("fileUrl", fileUrl);
+
+  const handleSelectedModal = (number: number) => {
+    switch (number) {
+      case 1:
+        return <SecurityCodeModal />;
+      case 2:
+        return <InstallLocalNowModal />;
+      default:
+        return <SignUpShoeModal />;
+    }
+  };
 
   return (
     <div className="modalPart1Div flex flex-row justify-between items-start w-[1194px] mt-[90px]">
@@ -80,20 +91,7 @@ function ModalPart2() {
           Upload Logo
         </p>
         <div className="generalPosition flex-col UploadLogoBorder mt-[15px] mb-[90px]">
-          <div className="generalPosition bg-[#7D4AEA] opacity-[0.1] rounded-[12px] w-[80px] h-[80px] mt-[30px]">
-            <Image
-              src="/assets/modal/uploadLogoIn.svg"
-              width={27}
-              height={27}
-            />
-          </div>
-          <div className="flex flex-row mt-[20px]">
-            <Image src="/assets/modal/uploadIcon.svg" width={18} height={12} />
-            <p className="font-normal text-[14px] font-[Inter] ml-[5px]">
-              Drop your image here or{" "}
-              <button className="underline text-[#7D4AEA]">upload</button>
-            </p>
-          </div>
+            <MyUploadButtonPart />
         </div>
       </div>
 
