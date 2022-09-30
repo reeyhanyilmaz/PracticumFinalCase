@@ -1,23 +1,41 @@
 import React, { useRef, useState } from "react";
-import { Upload } from "upload-js";
-import { setFileUrl, useFileUrl } from "../redux/modalSlice";
 
+//nextjs
 import Image from "next/image";
+
+//for upload api
+import { Upload } from "upload-js";
+
+//loader spinner
+import { RotatingLines } from "react-loader-spinner";
+
+import {
+  setFileUrl,
+  useFileUrl,
+  useLoading,
+  setLoading,
+} from "../redux/modalSlice";
 
 const upload = new Upload({ apiKey: "public_12a1xqKxHyXXSyXNew8hUQWRX2uS" });
 
-const MyUploadButton = () => {
+const UploadButton = () => {
   // const fileUrl = useFileUrl(); //state
   // console.log("fileUrl :>> ", fileUrl);
+  // const loading = useLoading();
+
   const [fileUrl, setFileUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  console.log("loading", loading);
 
   const uploadFile = upload.createFileInputHandler({
     onProgress: ({ bytesSent, bytesTotal }) => {
+      setLoading(true);
       console.log(`${bytesSent / bytesTotal}% complete`);
     },
     onUploaded: ({ fileUrl, fileId }) => {
+      setLoading(false);
       setFileUrl(fileUrl);
-      alert(`File uploaded!\n${fileUrl}`);
+      // alert(`File uploaded!\n${fileUrl}`);
       console.log("fileUrl", fileUrl);
     },
     onError: (error) => {
@@ -39,7 +57,19 @@ const MyUploadButton = () => {
     <>
       {fileUrl === "" ? (
         <div className="generalPosition bg-[rgba(125,74,234,0.1)] rounded-[12px] w-[80px] h-[80px] mt-[30px]">
-          <Image src="/assets/modal/uploadLogo.png" width={27} height={27} />
+          {loading ? (
+            <div>
+              <RotatingLines
+                strokeColor="grey"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="40"
+                visible={true}
+              />
+            </div>
+          ) : (
+            <Image src="/assets/modal/uploadLogo.png" width={27} height={27} />
+          )}
         </div>
       ) : (
         <Image loader={() => src} src={fileUrl} width={110} height={80} />
@@ -60,4 +90,4 @@ const MyUploadButton = () => {
   );
 };
 
-export default MyUploadButton;
+export default UploadButton;
