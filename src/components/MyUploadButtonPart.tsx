@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Upload } from "upload-js";
 import { setFileUrl, useFileUrl } from "../redux/modalSlice";
 
@@ -17,7 +17,7 @@ const MyUploadButton = () => {
     },
     onUploaded: ({ fileUrl, fileId }) => {
       setFileUrl(fileUrl);
-      // alert(`File uploaded!\n${fileUrl}`);
+      alert(`File uploaded!\n${fileUrl}`);
       console.log("fileUrl", fileUrl);
     },
     onError: (error) => {
@@ -27,6 +27,13 @@ const MyUploadButton = () => {
 
   //for image loader
   const src = fileUrl;
+
+  //for click button
+  const ref = useRef<any>();
+  const handleClick = () => {
+    const node: any = ref.current;
+    node?.click();
+  };
 
   return (
     <>
@@ -39,13 +46,15 @@ const MyUploadButton = () => {
       )}
 
       <div className="flex flex-row mt-[20px]">
-        <input type="file" onChange={uploadFile} />
+        <input ref={ref} type="file" onChange={uploadFile} className="hidden" />
 
-        {/* <Image src="/assets/modal/uploadIcon.svg" width={18} height={12} /> */}
-        {/* <p className="font-normal text-[14px] font-[Inter] ml-[5px]">
-              Drop your image here or{" "}
-              <button className="underline text-[#7D4AEA]">upload</button>
-            </p> */}
+        <Image src="/assets/modal/uploadIcon.svg" width={18} height={12} />
+        <p className="font-normal text-[14px] font-[Inter] ml-[5px]">
+          Drop your image here or{" "}
+          <button onClick={handleClick} className="underline text-[#7D4AEA]">
+            upload
+          </button>
+        </p>
       </div>
     </>
   );
