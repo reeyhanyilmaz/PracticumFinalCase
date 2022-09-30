@@ -38,8 +38,8 @@ const MyUploadButton = () => {
   return (
     <>
       {fileUrl === "" ? (
-        <div className="generalPosition bg-[#7D4AEA] opacity-[0.1] rounded-[12px] w-[80px] h-[80px] mt-[30px]">
-          <Image src="/assets/modal/uploadLogoIn.svg" width={27} height={27} />
+        <div className="generalPosition bg-[rgba(125,74,234,0.1)] rounded-[12px] w-[80px] h-[80px] mt-[30px]">
+          <Image src="/assets/modal/uploadLogo.png" width={27} height={27} />
         </div>
       ) : (
         <Image loader={() => src} src={fileUrl} width={110} height={80} />
