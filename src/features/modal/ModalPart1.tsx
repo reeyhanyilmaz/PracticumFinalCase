@@ -9,8 +9,10 @@ import SectionTitle from "../../components/SectionTitle";
 function ModalPart1() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-  const selectedModal = useSelectedModal()
-  console.log('selectedModal', selectedModal);
+  const selectedModal = useSelectedModal();
+  console.log("selectedModal", selectedModal);
+
+ 
 
   return (
     <div className="modalPart1Div justify-center w-[1194px] mt-[90px]">
@@ -19,7 +21,11 @@ function ModalPart1() {
       <div className="mt-[30px] grid grid-cols-4 gap-[30px]">
         {modals.map((modal: IModalGridCard) => (
           <div
-            className={selectedModal === modal.id ? "modalGridSelectedStyles generalPosition" : "modalGridStyles generalPosition " }
+            className={
+              selectedModal === modal.id
+                ? "modalGridSelectedStyles generalPosition"
+                : "modalGridStyles generalPosition "
+            }
             onClick={() => dispatch(setSelectedModal(modal.id))}
             key={modal.id}
           >
