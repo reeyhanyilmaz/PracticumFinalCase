@@ -1,10 +1,5 @@
 import React from "react";
-
-interface IProps {
-  no: string;
-  title: string;
-  extra?: string;
-}
+import { IProps } from "../types/modal";
 
 function SectionTitle(props: IProps) {
   const { no, title, extra } = props;

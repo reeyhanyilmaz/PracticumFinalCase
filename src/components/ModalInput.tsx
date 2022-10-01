@@ -1,13 +1,5 @@
-import React from 'react';
-
-interface IInput{
-placeholder: string;
-height?: number;
-width?: number;
-pl?:number;
-size?: number;
-}
-
+import React from "react";
+import { IInput } from "../types/modal";
 
 function ModalInput(props: IInput) {
   const inputStyle = {
@@ -15,12 +7,18 @@ function ModalInput(props: IInput) {
     width: props.width,
     paddingLeft: props.pl,
     fontSize: props.size,
-}
+  };
+  
   return (
     <div>
-      <input style={inputStyle} type="text" placeholder={props.placeholder} className="modalInputProperties"/>
+      <input
+        style={inputStyle}
+        type="text"
+        placeholder={props.placeholder}
+        className="modalInputProperties"
+      />
     </div>
-  )
+  );
 }
 
 export default ModalInput;

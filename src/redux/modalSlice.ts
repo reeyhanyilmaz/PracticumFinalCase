@@ -2,14 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store';
 import { useAppSelector } from './hooks';
+import {IModalState } from '../types/modal';
 
-interface ModalState {
-    selectedModal: number,
-    fileUrl: string,
-    loading: boolean,
-}
-
-const initialState: ModalState = {
+const initialState: IModalState = {
     selectedModal: 0,
     fileUrl: "",
     loading: false,
