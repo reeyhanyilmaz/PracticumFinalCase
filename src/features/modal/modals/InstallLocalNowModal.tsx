@@ -4,17 +4,28 @@ import ModalCloseButton from "../../../components/ModalCloseButton";
 import Image from "next/image";
 
 //redux
-import { useFileUrl, useSelectedModal } from "../../../redux/modalSlice";
+import {
+  useFileUrl,
+  useSelectedColor,
+  useSelectedModal,
+  useSelectedModalSize,
+} from "../../../redux/modalSlice";
 
 function InstallLocalNowModal() {
   const fileUrl = useFileUrl();
+  const size = useSelectedModalSize();
+  const selectedModal = useSelectedModal();
+  const color = useSelectedColor();
 
   //for image loader
   const src = fileUrl;
-  const selectedModal = useSelectedModal();
 
   return (
-    <div className="generalModalStyle flex-col w-[480px] h-[600px] font-[Inter]">
+    <div
+      className={`generalModalStyle flex-col w-[${size * 240}] h-[${
+        size * 300
+      }] font-[Inter]`}
+    >
       <ModalCloseButton />
       <Image
         unoptimized
@@ -24,27 +35,40 @@ function InstallLocalNowModal() {
             ? fileUrl
             : "/assets/modal/installLocalNowModalImage.svg"
         }
-        width={480}
-        height={300}
+        width={size * 240}
+        height={size * 150}
       />
-      <div className="generalPosition flex-col w-[480px] h-[300px]">
-        <p className="w-[236px] h-[36px] mb-[20px] font-bold text-2xl">
+      <div
+        className={`generalPosition py-[39px] flex-col w-full h-[${
+          size * 150
+        }]`}
+      >
+        <p
+          className={`mb-[20px] text-${
+            size === 1 ? "xl" : size === 2 ? "2xl" : "3xl"
+          } font-bold`}
+          style={{ fontSize: size === 3 ? "50px" : "" }}
+        >
           Install Local Now
         </p>
-        <p className="mb-[20px] text-xl font-normal">
+        <p
+          className={`mb-[20px] text-${
+            size === 1 ? "lg" : size === 2 ? "xl" : "2xl"
+          } font-normal`}
+        >
           We’ve gone native, try it!
         </p>
         <div className="grid gap-[14.5px]">
           <ModalButton
             title="Continue"
-            width={350}
-            border="none"
-            color="#fff"
-            bg="#7D4AEA"
+            width={size * 175}
+            border={color === "#FFFFFF" ? "1px solid #D2DAE3" : "none"}
+            color={color === "#FFFFFF" ? "#000000" : "#fff"}
+            bg={color}
           />
           <ModalButton
             title="Not Now"
-            width={350}
+            width={size * 175}
             border="1px solid #D2DAE3"
             bg="#fff"
           />
