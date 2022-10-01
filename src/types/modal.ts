@@ -5,11 +5,21 @@ export interface IModalGridCard {
     image: { url: string; height: number; width: number };
 }
 
+//for modal size button
+export interface ISizeButtonData {
+    id:number,
+    name:string,
+    width: number | string,
+    height: number | string,
+}
+
 //for slice
 export interface IModalState {
     selectedModal: number,
     fileUrl: string,
     loading: boolean,
+    selectedModalSize: number,
+    selectedColor: string
 }
 
 //for modal button
