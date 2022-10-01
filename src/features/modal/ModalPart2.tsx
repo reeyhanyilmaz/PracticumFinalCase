@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import Image from "next/image";
+import React from "react";
 
 //redux
-import { useSelectedModal, useFileUrl } from "../../redux/modalSlice";
+import {
+  useSelectedModal,
+  setSelectedModalSize,
+  useSelectedModalSize,
+  setSelectedColor,
+} from "../../redux/modalSlice";
 
-//modaals
+//modals
 import SecurityCodeModal from "./modals/SecurityCodeModal";
 import InstallLocalNowModal from "./modals/InstallLocalNowModal";
 import SignUpShoeModal from "./modals/SignUpShoeModal";
@@ -12,14 +16,21 @@ import SignUpShoeModal from "./modals/SignUpShoeModal";
 import SectionTitle from "../../components/SectionTitle";
 
 //upload button
-import MyUploadButtonPart from "../../components/MyUploadButtonPart";
+import UploadButtonPart from "../../components/UploadButtonPart";
+import { useAppDispatch } from "../../redux/hooks";
+
+//data
+import { sizeButtonData, colors } from "../../data/modal";
+
+//type
+import { ISizeButtonData } from "../../types/modal";
 
 function ModalPart2() {
-  const [isClick, setIsClick] = useState<boolean>(false);
+  // const [isClick, setIsClick] = useState<boolean>(false);
+  //redux
+  const dispatch = useAppDispatch();
   const selectedModal = useSelectedModal();
-
-  const fileUrl = useFileUrl(); //state
-  console.log("fileUrl", fileUrl);
+  const selectedModalSize = useSelectedModalSize();
 
   const handleSelectedModal = (number: number) => {
     switch (number) {
@@ -41,36 +52,20 @@ function ModalPart2() {
 
         {/* small-medium-large option */}
         <div className="flex justify-around items-center flex-row mt-[30px] mb-[67px] w-[257px] h-[48px] bg-[#f5f5f5] rounded-[12px]">
-          <button
-            onClick={() => setIsClick(!isClick)}
-            className={
-              isClick === true
-                ? "w-[95px] h-[42px] bg-[#fff] rounded-[10px]"
-                : "w-[95px] h-[42px] text-[#777777]"
-            }
-          >
-            Small
-          </button>
-          <button
-            onClick={() => setIsClick(!isClick)}
-            className={
-              isClick === true
-                ? "w-[95px] h-[42px] bg-[#fff] rounded-[10px]"
-                : "w-[95px] h-[42px] text-[#777777]"
-            }
-          >
-            Medium
-          </button>
-          <button
-            onClick={() => setIsClick(!isClick)}
-            className={
-              isClick === true
-                ? "w-[95px] h-[42px] bg-[#fff] rounded-[10px]"
-                : "w-[95px] h-[42px] text-[#777777]"
-            }
-          >
-            Large
-          </button>
+          {sizeButtonData.map((item: ISizeButtonData) => (
+            <div key={item.id}>
+              <button
+                onClick={() => dispatch(setSelectedModalSize(item.id))}
+                className={
+                  selectedModalSize === item.id
+                    ? "w-[95px] h-[42px] bg-[#fff] rounded-[10px]"
+                    : "w-[95px] h-[42px] text-[#777777]"
+                }
+              >
+                {item.name}
+              </button>
+            </div>
+          ))}
         </div>
 
         {/* position */}
@@ -80,18 +75,18 @@ function ModalPart2() {
         {/* colors */}
         <p className="mt-[30px] text-sm font-[Inter] font-normal ">Colors</p>
         <div className="flex mt-[15px] grid grid-cols-5 gap-[10px] w-[250px]">
-          <div className="colorsCardStyles bg-[#000000]"></div>
-          <div className="colorsCardStyles bg-[#F37C34]"></div>
-          <div className="colorsCardStyles bg-[#777777]"></div>
-          <div className="colorsCardStyles bg-[#DDDDDD]"></div>
-          <div className="colorsCardStyles bg-[#FFFFFF;]"></div>
+          {colors.map((color, i) => (
+            <button 
+            onClick={() => dispatch(setSelectedColor(color))}
+            key={i} className={`colorsCardStyles bg-[${color}]`} />
+          ))}
         </div>
         {/* upload logo */}
         <p className="mt-[30px] text-sm font-[Inter] font-normal">
           Upload Logo
         </p>
         <div className="generalPosition flex-col UploadLogoBorder mt-[15px] mb-[90px]">
-            <MyUploadButtonPart />
+          <UploadButtonPart />
         </div>
       </div>
 
