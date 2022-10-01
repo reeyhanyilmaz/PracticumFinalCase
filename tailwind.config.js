@@ -4,10 +4,12 @@ const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
-    backgroundColor: {
-      purple: "#7D4AEA",
+    extend: {
+      colors: {
+        primaryColor: "#7D4AEA",
+      },
     },
+  
   },
   plugins: [
     plugin(function ({ addComponents }) {
@@ -30,13 +32,16 @@ module.exports = {
           width: "350px",
           height: "48px",
           border: "1px solid #D2DAE3",
-          borderRadius: "12px",
+          borderRadius: "8px",
           paddingLeft: "14.5px",
+          fontSize: "16px",
         },
         ".modalButtonProperties": {
           height: "48px",
-          borderRadius: "12px",
+          borderRadius: "8px",
           textAlign: "center",
+          fontSize: "16px",
+          fontWeight: "500",
         },
         //for 4 grid card
         ".modalGridStyles": {
@@ -46,6 +51,15 @@ module.exports = {
           border: "1px solid #EAEAEA",
           borderRadius: "12px",
           boxSizing: "border-box",
+          curser: "pointer",
+        },
+        ".modalGridSelectedStyles": {
+          backgroundColor: "rgba(125, 74, 234, 0.6)",
+          width: "276px",
+          height: "200px",
+          borderRadius: "12px",
+          boxSizing: "border-box",
+          curser: "pointer",
         },
         // for 5 colors card
         ".colorsCardStyles": {
@@ -55,13 +69,19 @@ module.exports = {
           height: "42px",
           boxSizing: "border-box",
         },
-        ".UploadLogoBorder" : {
+        ".UploadLogoBorder": {
           border: "1px dashed #DDDDDD",
           borderRadius: "12px",
           boxSizing: "border-box",
-          width : "378px",
+          width: "378px",
           height: "178px",
-        }
+        },
+        ".modalPosition": {
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        },
       });
     }),
   ],
