@@ -2,12 +2,19 @@ import React from "react";
 import Image from "next/image";
 import ModalInput from "../../../components/ModalInput";
 import ModalButton from "../../../components/ModalButton";
+//redux
+import { useFileUrl, useSelectedModal } from "../../../redux/modalSlice";
 
 function SignUpShoeModal() {
+  const fileUrl = useFileUrl();
+
+  //for image loader
+  const src = fileUrl;
+  const selectedModal = useSelectedModal();
   return (
-    <div className="flex flex-row w-[740px] h-[405px] font-['Poppins']">
+    <div className="flex flex-row w-[740px] h-[389px] font-['Poppins']">
       {/* left part */}
-      <div className="part1 flex flex-col w-[400px] justify-center items-center ">
+      <div className="flex flex-col w-[400px] justify-center items-center ">
         <p className="text-[30px] font-semibold">Sign Up</p>
         <p className="mt-[10px] text-[16px]">Join new adventure</p>
         <div className="grid grid-cols gap-[15px] mt-[30px]">
@@ -44,7 +51,13 @@ function SignUpShoeModal() {
       {/* right part (shoes image) */}
       <div className="part2 relative ">
         <Image
-          src="/assets/modal/appearanceShoeImage.svg"
+          unoptimized
+          loader={() => src}
+          src={
+            selectedModal && fileUrl
+              ? fileUrl
+              : "/assets/modal/appearanceShoeImage.svg"
+          }
           width={370}
           height={405}
           className="rounded-r-[30px]"

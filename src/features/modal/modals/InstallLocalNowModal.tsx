@@ -3,11 +3,30 @@ import ModalButton from "../../../components/ModalButton";
 import ModalCloseButton from "../../../components/ModalCloseButton";
 import Image from "next/image";
 
+//redux
+import { useFileUrl, useSelectedModal } from "../../../redux/modalSlice";
+
 function InstallLocalNowModal() {
+  const fileUrl = useFileUrl();
+
+  //for image loader
+  const src = fileUrl;
+  const selectedModal = useSelectedModal();
+
   return (
     <div className="generalModalStyle flex-col w-[480px] h-[600px] font-[Inter]">
       <ModalCloseButton />
-      <Image src="/assets/modal/installLocalNowModalImage.svg" width={480} height={300} />
+      <Image
+        unoptimized
+        loader={() => src}
+        src={
+          selectedModal && fileUrl
+            ? fileUrl
+            : "/assets/modal/installLocalNowModalImage.svg"
+        }
+        width={480}
+        height={300}
+      />
       <div className="generalPosition flex-col w-[480px] h-[300px]">
         <p className="w-[236px] h-[36px] mb-[20px] font-bold text-2xl">
           Install Local Now
