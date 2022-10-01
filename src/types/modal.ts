@@ -19,7 +19,8 @@ export interface IModalState {
     fileUrl: string,
     loading: boolean,
     selectedModalSize: number,
-    selectedColor: string
+    selectedColor: string,
+    selectedPosition:number,
 }
 
 //for modal button

@@ -6,6 +6,8 @@ import {
   setSelectedModalSize,
   useSelectedModalSize,
   setSelectedColor,
+  useSelectedPosition,
+  setSelectedPosition,
 } from "../../redux/modalSlice";
 
 //modals
@@ -20,7 +22,7 @@ import UploadButtonPart from "../../components/UploadButtonPart";
 import { useAppDispatch } from "../../redux/hooks";
 
 //data
-import { sizeButtonData, colors } from "../../data/modal";
+import { sizeButtonData, colors, positions } from "../../data/modal";
 
 //type
 import { ISizeButtonData } from "../../types/modal";
@@ -31,6 +33,7 @@ function ModalPart2() {
   const dispatch = useAppDispatch();
   const selectedModal = useSelectedModal();
   const selectedModalSize = useSelectedModalSize();
+  const selectedPosition = useSelectedPosition();
 
   const handleSelectedModal = (number: number) => {
     switch (number) {
@@ -47,7 +50,7 @@ function ModalPart2() {
     <div className="modalPart1Div flex flex-row justify-between items-start w-[1194px] mt-[90px]">
       {/* left part **************************************************************/}
       <div className="h-[auto]">
-        <SectionTitle no="2" title="Appearancee" extra="Size, colors, logo" />
+        <SectionTitle no="2" title="Appearance" extra="Size, colors, logo" />
         <p className="text-sm font-[Inter] font-normal mt-[30px]">Size</p>
 
         {/* small-medium-large option */}
@@ -70,15 +73,27 @@ function ModalPart2() {
 
         {/* position */}
         <p className="text-sm font-[Inter] font-normal">Position</p>
-        <div className="mt-[15px]">positionlar gelecek</div>
+        <div className="mt-[15px] grid grid-cols-3 gap-[5px] w-[82px] h-[55px]">
+          {positions.map((position) => (
+            <button
+              onClick={() => dispatch(setSelectedPosition(position.id))}
+              className={`border-solid border border-inherit w-[24px] h-[15px] ${
+                position.style
+              } ${selectedPosition === position.id ? "bg-primaryColor" : ""}`}
+            />
+          ))}
+        </div>
 
         {/* colors */}
         <p className="mt-[30px] text-sm font-[Inter] font-normal ">Colors</p>
         <div className="flex mt-[15px] grid grid-cols-5 gap-[10px] w-[250px]">
           {colors.map((color, i) => (
-            <button 
-            onClick={() => dispatch(setSelectedColor(color))}
-            key={i} className={`colorsCardStyles bg-[${color}]`} />
+            <button
+              onClick={() => dispatch(setSelectedColor(color))}
+              key={i}
+              className={`colorsCardStyles bg-[${color}]`}
+              style={{ backgroundColor: color }}
+            />
           ))}
         </div>
         {/* upload logo */}
