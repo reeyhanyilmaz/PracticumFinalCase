@@ -18,7 +18,6 @@ import {
 } from "../redux/modalSlice";
 import { useAppDispatch } from "../redux/hooks";
 
-
 const upload = new Upload({ apiKey: "public_12a1xqKxHyXXSyXNew8hUQWRX2uS" });
 
 const UploadButton = () => {
@@ -88,7 +87,7 @@ const UploadButton = () => {
         <Image src="/assets/modal/uploadIcon.svg" width={18} height={12} />
         <p className="font-normal text-[14px] font-[Inter] ml-[5px]">
           Drop your image here or{" "}
-          <button onClick={handleClick} className="underline text-[#7D4AEA]">
+          <button onClick={handleClick} className="underline text-primaryColor">
             upload
           </button>
         </p>
