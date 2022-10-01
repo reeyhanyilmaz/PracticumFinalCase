@@ -68,3 +68,30 @@ export const ModalGridCardsData = <IModalGridCard[]>[
         image: { url: "/assets/modal/modal1.svg", width: 170, height: 156 },
     },
 ];
+
+//for button size
+export const sizeButtonData = [
+    {
+        id: 1,
+        name: "Small",
+        width: "",
+        height: "",
+    },
+    {
+        id: 2,
+        name: "Medium",
+        width: "",
+        height: "",
+    },
+    {
+        id: 3,
+        name: "Large",
+        width: "",
+        height: "",
+    },
+];
+
+//for colors button
+export const colors = ["#000000", "#F37C34", "#777777", "#DDDDDD", "#FFFFFF"]
+
+
