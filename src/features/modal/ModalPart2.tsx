@@ -43,13 +43,13 @@ function ModalPart2() {
         setPos("absolute top-0 left-0");
         break;
       case 2:
-        setPos("absolute top-0 translate-x-1/2");
+        setPos("absolute top-0 left-[50%] -translate-x-1/2");
         break;
       case 3:
         setPos("absolute top-0 right-0");
         break;
       case 4:
-        setPos("absolute left-0 translate-y-1/2");
+        setPos("absolute left-0 top-[50%] -translate-y-1/2");
         break;
       case 5:
         setPos(
@@ -57,13 +57,13 @@ function ModalPart2() {
         );
         break;
       case 6:
-        setPos("absolute right-0 translate-y-1/2");
+        setPos("absolute right-0 top-[50%] -translate-y-1/2");
         break;
       case 7:
         setPos("absolute bottom-0 left-0");
         break;
       case 8:
-        setPos("absolute bottom-0 translate-x-1/2");
+        setPos("absolute bottom-0 left-[50%] -translate-x-1/2");
         break;
       case 9:
         setPos("absolute bottom-0 right-0");
@@ -149,7 +149,7 @@ function ModalPart2() {
       </div>
 
       {/* right part  *************************************************************/}
-      <div className="relative flex-1">
+      <div className="relative flex-1 bg-[green]">
         <div
           className={`rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)] ${pos}`}
         >
