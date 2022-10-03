@@ -21,11 +21,7 @@ function InstallLocalNowModal() {
   const src = fileUrl;
 
   return (
-    <div
-      className={`generalModalStyle flex-col w-[${size * 240}] h-[${
-        size * 300
-      }] font-[Inter]`}
-    >
+    <div className={`generalModalStyle flex-col font-[Inter]`}>
       <ModalCloseButton />
       <Image
         unoptimized
@@ -39,11 +35,7 @@ function InstallLocalNowModal() {
         height={size * 150}
         className="rounded-t-[8px]"
       />
-      <div
-        className={`generalPosition py-[10px] flex-col h-[${
-          size * 150
-        }]`}
-      >
+      <div className={`generalPosition py-[20px] px-[10px] flex-col`}>
         <p
           className={`text-${
             size === 1 ? "xl" : size === 2 ? "2xl" : "3xl"
@@ -55,14 +47,14 @@ function InstallLocalNowModal() {
         <p
           className={`text-${
             size === 1 ? "lg" : size === 2 ? "xl" : "2xl"
-          } font-normal`}
+          } mt-[10px] font-normal`}
         >
           We’ve gone native, try it!
         </p>
-        <div className="grid gap-[14.5px] ">
+        <div className="grid gap-[14.5px] mt-[20px]">
           <ModalButton
             title="Continue"
-            width={size*175}
+            width={size * 175}
             border={color === "#FFFFFF" ? "1px solid #D2DAE3" : "none"}
             color={color === "#FFFFFF" ? "#000000" : "#fff"}
             bg={color}
