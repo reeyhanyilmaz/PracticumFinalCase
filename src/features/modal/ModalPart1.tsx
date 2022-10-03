@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { useAppDispatch } from "../../redux/hooks";
+
+//redux
 import { setSelectedModal, useSelectedModal } from "../../redux/modalSlice";
+import { useAppDispatch } from "../../redux/hooks";
+
+//data
 import { ModalGridCardsData as modals } from "../../data/modal";
+
+//types
 import { IModalGridCard } from "../../types/modal";
+
 import SectionTitle from "../../components/SectionTitle";
 
 function ModalPart1() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const selectedModal = useSelectedModal();
-  console.log("selectedModal", selectedModal);
-
- 
 
   return (
     <div className="modalPart1Div justify-center w-[1194px] mt-[90px]">

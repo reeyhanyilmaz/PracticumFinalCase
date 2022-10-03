@@ -21,11 +21,10 @@ module.exports = {
         },
         //for one modal styles
         ".generalModalStyle": {
-          position: "relative",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          borderRadius: "12px",
+          borderRadius: "8px",
           backgroundColor: "#ffffff",
         },
         ".modalInputProperties": {

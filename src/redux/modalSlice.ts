@@ -8,7 +8,7 @@ const initialState: IModalState = {
     selectedModal: 0,
     selectedModalSize: 2,
     selectedPosition: 5,
-    selectedColor: "#F37C34",
+    selectedColor: "#7D4AEA",
     fileUrl: "",
     loading: false,
 }

@@ -37,31 +37,32 @@ function InstallLocalNowModal() {
         }
         width={size * 240}
         height={size * 150}
+        className="rounded-t-[8px]"
       />
       <div
-        className={`generalPosition py-[39px] flex-col w-full h-[${
+        className={`generalPosition py-[10px] flex-col h-[${
           size * 150
         }]`}
       >
         <p
-          className={`mb-[20px] text-${
+          className={`text-${
             size === 1 ? "xl" : size === 2 ? "2xl" : "3xl"
           } font-bold`}
-          style={{ fontSize: size === 3 ? "50px" : "" }}
+          style={{ fontSize: size === 3 ? "35px" : "" }}
         >
           Install Local Now
         </p>
         <p
-          className={`mb-[20px] text-${
+          className={`text-${
             size === 1 ? "lg" : size === 2 ? "xl" : "2xl"
           } font-normal`}
         >
           We’ve gone native, try it!
         </p>
-        <div className="grid gap-[14.5px]">
+        <div className="grid gap-[14.5px] ">
           <ModalButton
             title="Continue"
-            width={size * 175}
+            width={size*175}
             border={color === "#FFFFFF" ? "1px solid #D2DAE3" : "none"}
             color={color === "#FFFFFF" ? "#000000" : "#fff"}
             bg={color}
