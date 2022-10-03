@@ -13,10 +13,11 @@ import { IModalGridCard } from "../../types/modal";
 
 import SectionTitle from "../../components/SectionTitle";
 
-function ModalPart1() {
+function ChooseTemplate() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const selectedModal = useSelectedModal();
+  console.log({selectedModal})
 
   return (
     <div className="modalPart1Div justify-center w-[1194px] mt-[90px]">
@@ -79,4 +80,4 @@ function ModalPart1() {
   );
 }
 
-export default ModalPart1;
+export default ChooseTemplate;

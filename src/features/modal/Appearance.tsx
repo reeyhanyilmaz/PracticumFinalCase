@@ -26,8 +26,9 @@ import { sizeButtonData, colors, positions } from "../../data/modal";
 
 //type
 import { ISizeButtonData } from "../../types/modal";
+import {getTailWindBg} from "../../utils/utils";
 
-function ModalPart2() {
+function Appearance() {
   // const [isClick, setIsClick] = useState<boolean>(false);
   //redux
   const dispatch = useAppDispatch();
@@ -133,8 +134,7 @@ function ModalPart2() {
             <button
               onClick={() => dispatch(setSelectedColor(color))}
               key={i}
-              className={`colorsCardStyles bg-[${color}]`}
-              style={{ backgroundColor: color }}
+              className={`colorsCardStyles ${getTailWindBg(color)}`}
             />
           ))}
         </div>
@@ -149,9 +149,9 @@ function ModalPart2() {
       </div>
 
       {/* right part  *************************************************************/}
-      <div className="relative flex-1 bg-[green]">
+      <div className="relative flex-1">
         <div
-          className={`rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)] ${pos}`}
+          className={`rounded-[8px] shadow-[0_5px_30px_rgba(0,0,0,0.15)] ${pos}`}
         >
           {handleSelectedModal(selectedModal)}
         </div>
@@ -160,4 +160,6 @@ function ModalPart2() {
   );
 }
 
-export default ModalPart2;
+export default Appearance;
+
+

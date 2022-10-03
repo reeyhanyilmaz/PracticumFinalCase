@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header() {
+function ModalSectionHeader() {
   return (
     <div className="modalHeaderDiv flex flex-col w-[1194px] justify-center mt-[90px]">
       <p className="p1">Modal Card Generator</p>
@@ -13,4 +13,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default ModalSectionHeader;
