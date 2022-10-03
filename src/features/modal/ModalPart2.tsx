@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 //redux
 import {
@@ -34,6 +34,48 @@ function ModalPart2() {
   const selectedModal = useSelectedModal();
   const selectedModalSize = useSelectedModalSize();
   const selectedPosition = useSelectedPosition();
+  const position = useSelectedPosition();
+  const [pos, setPos] = useState("");
+
+  const handleModalPosition = (position: number) => {
+    switch (position) {
+      case 1:
+        setPos("absolute top-0 left-0");
+        break;
+      case 2:
+        setPos("absolute top-0 translate-x-1/2");
+        break;
+      case 3:
+        setPos("absolute top-0 right-0");
+        break;
+      case 4:
+        setPos("absolute left-0 translate-y-1/2");
+        break;
+      case 5:
+        setPos(
+          "absolute top-[50%] left-[50%] -translate-y-1/2 -translate-x-1/2"
+        );
+        break;
+      case 6:
+        setPos("absolute right-0 translate-y-1/2");
+        break;
+      case 7:
+        setPos("absolute bottom-0 left-0");
+        break;
+      case 8:
+        setPos("absolute bottom-0 translate-x-1/2");
+        break;
+      case 9:
+        setPos("absolute bottom-0 right-0");
+        break;
+      // default: setPos("absolute top-0 translate-x-1/2");
+      //   break;
+    }
+  };
+
+  useEffect(() => {
+    handleModalPosition(position);
+  }, [position]);
 
   const handleSelectedModal = (number: number) => {
     switch (number) {
@@ -47,7 +89,7 @@ function ModalPart2() {
   };
 
   return (
-    <div className="modalPart1Div flex flex-row justify-between items-start w-[1194px] mt-[90px]">
+    <div className="modalPart1Div flex flex-row justify-between w-[1194px] mt-[90px]">
       {/* left part **************************************************************/}
       <div className="h-[auto]">
         <SectionTitle no="2" title="Appearance" extra="Size, colors, logo" />
@@ -73,7 +115,7 @@ function ModalPart2() {
 
         {/* position */}
         <p className="text-sm font-[Inter] font-normal">Position</p>
-        <div className="mt-[15px] grid grid-cols-3 gap-[5px] w-[82px] h-[55px]">
+        <div className=" relative mt-[15px] grid grid-cols-3 gap-[5px] w-[82px] h-[55px]">
           {positions.map((position) => (
             <button
               onClick={() => dispatch(setSelectedPosition(position.id))}
@@ -96,6 +138,7 @@ function ModalPart2() {
             />
           ))}
         </div>
+
         {/* upload logo */}
         <p className="mt-[30px] text-sm font-[Inter] font-normal">
           Upload Logo
@@ -106,8 +149,12 @@ function ModalPart2() {
       </div>
 
       {/* right part  *************************************************************/}
-      <div className="rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)]">
-        {handleSelectedModal(selectedModal)}
+      <div className="relative flex-1">
+        <div
+          className={`rounded-[30px] shadow-[0_5px_30px_rgba(0,0,0,0.15)] ${pos}`}
+        >
+          {handleSelectedModal(selectedModal)}
+        </div>
       </div>
     </div>
   );
