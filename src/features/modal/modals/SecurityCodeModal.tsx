@@ -6,35 +6,30 @@ import ModalButton from "../../../components/ModalButton";
 
 //redux
 import {
-  useFileUrl,
   useSelectedColor,
-  useSelectedModal,
   useSelectedModalSize,
 } from "../../../redux/modalSlice";
+import { getTailWindBg } from "../../../utils/utils";
 
 function SecurityCodeModal() {
-  const fileUrl = useFileUrl();
   const size = useSelectedModalSize();
-  const selectedModal = useSelectedModal();
   const color = useSelectedColor();
 
   return (
-    <div
-      className={`generalModalStyle p-[20px] flex-col w-[${size * 240}] h-[${
-        size * 223
-      }] font-[Inter]`}
-      style={{height: size === 1 ? "223px" :  size === 2 ? "446px" : "668px", width: size === 1 ? "240px" :  size === 2 ? "480px" : "720px"}}
-
-    >
+    <div className={`generalModalStyle p-[20px] flex-col font-[Inter]`}>
       <ModalCloseButton />
       <div
-        className={`generalPosition bg-primaryColor  mb-[29px] rounded-[50%]`}
-        style={{height: size === 1 ? "45px" :  size === 2 ? "90px" : "135px", width: size === 1 ? "45px" :  size === 2 ? "90px" : "135px"}}
+        className={`generalPosition ${getTailWindBg(color)} mb-[29px] rounded-[50%] ${color === "#FFFFFF"&& "border border-black"}`}
+        style={{
+          height: size === 1 ? "65px" : size === 2 ? "90px" : "135px",
+          width: size === 1 ? "65px" : size === 2 ? "90px" : "135px",
+        }}
       >
         <Image
-          src="/assets/modal/securityCodeLogoContent.svg"
-          width={size * 18}
-          height={size * 22}
+          src={color=== "#FFFFFF"?"/assets/modal/securityCodeLogoContent2.svg":"/assets/modal/securityCodeLogoContent.svg"}
+          width={size === 1 ? "30px" : size === 2 ? "40px" : "60px"}
+          height={size === 1 ? "30px" : size === 2 ? "40px" : "60px"}
+          style={{borderColor:"red"}}
         />
       </div>
       <p
@@ -52,17 +47,18 @@ function SecurityCodeModal() {
       >
         This code expires in 24 hours
       </p>
-      <ModalInput placeholder="Code" />
+      <ModalInput placeholder="Code" width={size * 175} />
       <div className="grid grid-cols-2 gap-[14.5px] mt-[30.5px]">
+        {/* <div className="flex justify-center gap-[14.5px] mt-[30.5px]"> */}
         <ModalButton
           title="Cancel"
-          width={167}
+          width={size * 84}
           border="1px solid #D2DAE3"
           bg="#fff"
         />
         <ModalButton
           title="Continue"
-          width={168}
+          width={size * 84}
           border={color === "#FFFFFF" ? "1px solid #D2DAE3" : "none"}
           color={color === "#FFFFFF" ? "#000000" : "#fff"}
           bg={color}
