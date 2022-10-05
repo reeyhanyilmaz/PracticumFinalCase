@@ -2,6 +2,7 @@ import React from "react";
 import ChooseTemplate from "./ChooseTemplate";
 import Appearance from "./Appearance";
 import ModalSectionHeader from "./ModalSectionHeader";
+import Content from "./Content";
 
 function Body() {
   return (
@@ -9,6 +10,7 @@ function Body() {
       <ModalSectionHeader />
       <ChooseTemplate />
       <Appearance />
+      <Content />
     </div>
   );
 }

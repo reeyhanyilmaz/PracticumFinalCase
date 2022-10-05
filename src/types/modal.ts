@@ -16,7 +16,8 @@ export interface ISizeButtonData {
 //for slice
 export interface IModalState {
     selectedModal: number,
-    fileUrl: string,
+    fileLogo: string,
+    fileImage: string,
     loading: boolean,
     selectedModalSize: number,
     selectedColor: string,

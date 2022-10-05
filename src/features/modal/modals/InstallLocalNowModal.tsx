@@ -5,20 +5,20 @@ import Image from "next/image";
 
 //redux
 import {
-  useFileUrl,
+  useFileImage,
   useSelectedColor,
   useSelectedModal,
   useSelectedModalSize,
 } from "../../../redux/modalSlice";
 
 function InstallLocalNowModal() {
-  const fileUrl = useFileUrl();
+  const fileImage = useFileImage();
   const size = useSelectedModalSize();
   const selectedModal = useSelectedModal();
   const color = useSelectedColor();
 
   //for image loader
-  const src = fileUrl;
+  const src = fileImage;
 
   return (
     <div className={`generalModalStyle flex-col font-[Inter]`}>
@@ -27,8 +27,8 @@ function InstallLocalNowModal() {
         unoptimized
         loader={() => src}
         src={
-          selectedModal && fileUrl
-            ? fileUrl
+          selectedModal && fileImage
+            ? fileImage
             : "/assets/modal/installLocalNowModalImage.svg"
         }
         width={size * 240}

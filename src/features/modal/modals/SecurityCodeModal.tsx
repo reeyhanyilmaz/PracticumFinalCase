@@ -8,12 +8,19 @@ import ModalButton from "../../../components/ModalButton";
 import {
   useSelectedColor,
   useSelectedModalSize,
+  useFileLogo,
+  useSelectedModal,
 } from "../../../redux/modalSlice";
 import { getTailWindBg } from "../../../utils/utils";
 
 function SecurityCodeModal() {
   const size = useSelectedModalSize();
   const color = useSelectedColor();
+  const fileLogo = useFileLogo();
+  const selectedModal = useSelectedModal();
+
+    //for image loader
+    const src = fileLogo;
 
   return (
     <div className={`generalModalStyle p-[20px] flex-col font-[Inter]`}>
@@ -26,10 +33,17 @@ function SecurityCodeModal() {
         }}
       >
         <Image
-          src={color=== "#FFFFFF"?"/assets/modal/securityCodeLogoContent2.svg":"/assets/modal/securityCodeLogoContent.svg"}
+          // src={color=== "#FFFFFF" ? "/assets/modal/securityCodeLogoContent2.svg":"/assets/modal/securityCodeLogoContent.svg"}
+          unoptimized
+          loader={() => src}
+          src={
+            selectedModal && fileLogo
+              ? fileLogo
+              : color=== "#FFFFFF" ? "/assets/modal/securityCodeLogoContent2.svg" : "/assets/modal/securityCodeLogoContent.svg"
+          }
           width={size === 1 ? "30px" : size === 2 ? "40px" : "60px"}
           height={size === 1 ? "30px" : size === 2 ? "40px" : "60px"}
-          style={{borderColor:"red"}}
+        className="rounded-full"
         />
       </div>
       <p

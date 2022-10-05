@@ -9,7 +9,6 @@ module.exports = {
         primaryColor: "#7D4AEA",
       },
     },
-  
   },
   plugins: [
     plugin(function ({ addComponents }) {
@@ -28,7 +27,6 @@ module.exports = {
           backgroundColor: "#ffffff",
         },
         ".modalInputProperties": {
-          width: "350px",
           height: "48px",
           border: "1px solid #D2DAE3",
           borderRadius: "8px",
@@ -59,6 +57,20 @@ module.exports = {
           borderRadius: "12px",
           boxSizing: "border-box",
           curser: "pointer",
+        },
+        ".modalHover": {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "rgba(125, 74, 234, 0.6)",
+          width: "276px",
+          height: "200px",
+          borderRadius: "12px",
+          boxSizing: "border-box",
+          curser: "pointer",
+          color: "white",
+          zIndex: 1,
+         
         },
         // for 5 colors card
         ".colorsCardStyles": {

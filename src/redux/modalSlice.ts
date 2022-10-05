@@ -5,11 +5,12 @@ import { useAppSelector } from './hooks';
 import { IModalState } from '../types/modal';
 
 const initialState: IModalState = {
-    selectedModal: 0,
+    selectedModal: 1,
     selectedModalSize: 2,
-    selectedPosition: 5,
+    selectedPosition: 2,
     selectedColor: "#7D4AEA",
-    fileUrl: "",
+    fileLogo: "",
+    fileImage: "",  
     loading: false,
 }
 
@@ -23,8 +24,12 @@ export const modalSlice = createSlice({
         setSelectedModalSize: (state, action: PayloadAction<number>) => {
             state.selectedModalSize = action.payload;
         },
-        setFileUrl: (state, action: PayloadAction<string>) => {
-            state.fileUrl = action.payload;
+        setFileLogo: (state, action: PayloadAction<string>) => {
+            state.fileLogo = action.payload;
+            console.log('action.payload', action.payload)
+        },
+        setFileImage: (state, action: PayloadAction<string>) => {
+            state.fileImage = action.payload;
             console.log('action.payload', action.payload)
         },
         setLoading: (state, action: PayloadAction<boolean>) => {
@@ -40,15 +45,16 @@ export const modalSlice = createSlice({
 })
 
 // Reducers
-export const { setSelectedModal, setSelectedModalSize, setFileUrl, setLoading, setSelectedColor , setSelectedPosition } = modalSlice.actions
+export const { setSelectedModal, setSelectedModalSize, setFileLogo, setFileImage, setLoading, setSelectedColor , setSelectedPosition } = modalSlice.actions
 
 // Custom Hooks
 export const useSelectedModal = () => useAppSelector((s: RootState) => s.modal.selectedModal);
 export const useSelectedModalSize = () => useAppSelector((s: RootState) => s.modal.selectedModalSize);
 export const useSelectedColor = () => useAppSelector((s: RootState) => s.modal.selectedColor);
-export const useFileUrl = () => useAppSelector((s: RootState) => s.modal.fileUrl);
+export const useFileLogo = () => useAppSelector((s: RootState) => s.modal.fileLogo);
+export const useFileImage = () => useAppSelector((s: RootState) => s.modal.fileImage);
 export const useLoading = () => useAppSelector((s: RootState) => s.modal.loading);
 export const useSelectedPosition = () => useAppSelector((s: RootState) => s.modal.selectedPosition);
 
 // ModalReducer
-export default modalSlice.reducer
+export default modalSlice.reducer;

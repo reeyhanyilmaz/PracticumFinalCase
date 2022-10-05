@@ -17,7 +17,7 @@ function ChooseTemplate() {
   const [isClick, setIsClick] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const selectedModal = useSelectedModal();
-  console.log({selectedModal})
+  console.log({ selectedModal });
 
   return (
     <div className="modalPart1Div justify-center w-[1194px] mt-[90px]">
@@ -28,8 +28,8 @@ function ChooseTemplate() {
           <div
             className={
               selectedModal === modal.id
-                ? "modalGridSelectedStyles generalPosition"
-                : "modalGridStyles generalPosition "
+                ? "modalGridSelectedStyles generalPosition "
+                : "modalGridStyles generalPosition hover:modalHover"
             }
             onClick={() => dispatch(setSelectedModal(modal.id))}
             key={modal.id}

@@ -18,7 +18,7 @@ import SignUpShoeModal from "./modals/SignUpShoeModal";
 import SectionTitle from "../../components/SectionTitle";
 
 //upload button
-import UploadButtonPart from "../../components/UploadButtonPart";
+import UploadButtonPart from "../../components/UploadLogoPart";
 import { useAppDispatch } from "../../redux/hooks";
 
 //data

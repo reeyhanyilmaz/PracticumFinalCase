@@ -61,12 +61,7 @@ export const ModalGridCardsData = <IModalGridCard[]>[
         id: 12,
         name: "Security Code Modal",
         image: { url: "/assets/modal/modal1.svg", width: 170, height: 156 },
-    },
-    {
-        id: 13,
-        name: "Security Code Modal",
-        image: { url: "/assets/modal/modal1.svg", width: 170, height: 156 },
-    },
+    }
 ];
 
 //for button size
@@ -97,39 +92,39 @@ export const colors = ["#000000", "#F37C34", "#777777", "#DDDDDD", "#FFFFFF"]
 //for positions
 export const positions = [
     {
-        id:1,
+        id: 1,
         style: "rounded-[4px_0px_0px_0px]",
     },
     {
-        id:2,
+        id: 2,
         style: ""
     },
     {
-        id:3,
+        id: 3,
         style: "rounded-[0px_4px_0px_0px]"
     },
     {
-        id:4,
+        id: 4,
         style: ""
     },
     {
-        id:5,
+        id: 5,
         style: ""
     },
     {
-        id:6,
+        id: 6,
         style: ""
     },
     {
-        id:7,
+        id: 7,
         style: "rounded-[0px_0px_0px_4px]"
     },
     {
-        id:8,
+        id: 8,
         style: ""
     },
     {
-        id:9,
+        id: 9,
         style: "rounded-[0px_0px_4px_0px]"
     },
 ]
